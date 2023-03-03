@@ -10,10 +10,10 @@ namespace MoodAnalyzerTest
         {
             MoodAnalyzerProblem moodAnalyzer = new MoodAnalyzerProblem("I Am In Sad Mood");
             string result = moodAnalyzer.AnalyzeeMood();
-            Assert.AreEqual(result, "Sad");
+            Assert.AreEqual("Sad",result);
         }
         [Test]
-        public void GivenSadMood_WhenAnalyzd_ShouldReturnHappy()
+        public void GivenHappyMood_WhenAnalyzd_ShouldReturnHappy()
         {
             MoodAnalyzerProblem moodAnalyzer = new MoodAnalyzerProblem("I am In Happy Mood");
             string result = moodAnalyzer.AnalyzeeMood();
