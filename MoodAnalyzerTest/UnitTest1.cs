@@ -5,18 +5,18 @@ namespace MoodAnalyzerTest
 {
     public class Tests
     {
-        MoodAnalyzerProblem moodAnalyzer = new MoodAnalyzerProblem();
-
         [Test]
         public void GivenSadMood_WhenAnalyzd_ShouldReturnSad()
         {
-            string result = moodAnalyzer.AnalyzeeMood("I Am In Sad Mood");
-            Assert.AreEqual("Sad", result);
+            MoodAnalyzerProblem moodAnalyzer = new MoodAnalyzerProblem("I Am In Sad Mood");
+            string result = moodAnalyzer.AnalyzeeMood();
+            Assert.AreEqual(result, "Sad");
         }
         [Test]
         public void GivenSadMood_WhenAnalyzd_ShouldReturnHappy()
         {
-            string result = moodAnalyzer.AnalyzeeMood("I am In Happy Mood");
+            MoodAnalyzerProblem moodAnalyzer = new MoodAnalyzerProblem("I am In Happy Mood");
+            string result = moodAnalyzer.AnalyzeeMood();
             Assert.AreEqual("Happy", result);
         }
     }
