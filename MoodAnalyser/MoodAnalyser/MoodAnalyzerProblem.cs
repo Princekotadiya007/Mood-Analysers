@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MoodAnalyser.MoodAnlyseException;
 
 namespace MoodAnalyser
 {
@@ -29,7 +30,7 @@ namespace MoodAnalyser
            
             catch (NullReferenceException)
             {
-                return "Happy";
+                throw new MoodAnlyseException(MoodAnlyseExceptionType.NullMood, "Please do not Enter the Null Input");
             }
         }
     }

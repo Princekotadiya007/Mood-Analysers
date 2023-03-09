@@ -10,6 +10,9 @@ namespace MoodAnalyser
     {
         static void Main(string[] args)
         {
+            MoodAnalyzerProblem mood = new MoodAnalyzerProblem(null);
+            Console.WriteLine(mood.AnalyzeeMood());
+            Console.ReadLine();
         }
     }
 }
