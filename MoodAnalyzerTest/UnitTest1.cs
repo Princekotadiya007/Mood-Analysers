@@ -20,7 +20,7 @@ namespace MoodAnalyzerTest
             Assert.AreEqual("Happy", result);
         }
         [Test]
-        public void GivenNull_WhenAnalyzd_ShouldReturnHappy()
+        public void GivenNull_WhenAnalyzd_ThrowMoodAnalysisException_NullMessage()
         {
             MoodAnalyzerProblem moodAnalyzer = new MoodAnalyzerProblem(null);
             try
@@ -30,6 +30,19 @@ namespace MoodAnalyzerTest
             catch (MoodAnlyseException obj)
             {
                 Assert.AreEqual("Please do not Enter the Null Input", obj.Message);
+            }
+        }
+        [Test]
+        public void GivenEmptyMood_EmptyMessage()
+        {
+            MoodAnalyzerProblem moodAnalyzer = new MoodAnalyzerProblem("");
+            try
+            {
+                string result = moodAnalyzer.AnalyzeeMood();
+            }
+            catch (MoodAnlyseException obj)
+            {
+                Assert.AreEqual("Please do not Enter empty Input", obj.Message);
             }
         }
     }

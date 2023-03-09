@@ -18,14 +18,12 @@ namespace MoodAnalyser
         {
             try
             {
+                if (message.Equals(string.Empty))
+                    throw new MoodAnlyseException(MoodAnlyseExceptionType.EmptyMood, "Please do not Enter empty Input");
                 if (message.Contains("Sad"))
-                {
                     return "Sad";
-                }
                 else
-                {
                     return "Happy";
-                }
             }
            
             catch (NullReferenceException)
