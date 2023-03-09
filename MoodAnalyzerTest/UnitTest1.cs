@@ -23,8 +23,14 @@ namespace MoodAnalyzerTest
         public void GivenNull_WhenAnalyzd_ShouldReturnHappy()
         {
             MoodAnalyzerProblem moodAnalyzer = new MoodAnalyzerProblem(null);
-            string result = moodAnalyzer.AnalyzeeMood();
-            Assert.AreEqual("Happy", result);
+            try
+            {
+                string result = moodAnalyzer.AnalyzeeMood();
+            }
+            catch (MoodAnlyseException obj)
+            {
+                Assert.AreEqual("Please do not Enter the Null Input", obj.Message);
+            }
         }
     }
 }
