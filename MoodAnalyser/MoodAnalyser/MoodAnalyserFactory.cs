@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static MoodAnalyser.MoodAnlyseException;
 
 namespace MoodAnalyser
 {
@@ -15,14 +16,14 @@ namespace MoodAnalyser
         {
             //Matching the pattern for extension of namespace
             string pattern = @"." + constructorName + "$";
-            Match result = Regex.Match(className, pattern);
-            if (result.Success)
+            bool result = Regex.IsMatch(pattern, className);
+            if (result)
             {
                 try
                 {
                     Assembly executing = Assembly.GetExecutingAssembly();
-                    Type moodAnalyseType = executing.GetType(className);
-                    return Activator.CreateInstance(moodAnalyseType);
+                    Type MoodAnalyzerType = executing.GetType(className);
+                    return Activator.CreateInstance(MoodAnalyzerType);
                 }
                 catch (ArgumentNullException)
                 {
@@ -32,7 +33,7 @@ namespace MoodAnalyser
             }
             else
             {
-                throw new MoodAnlyseException(MoodAnlyseException.MoodAnlyseExceptionType.NO_SUCH_METHOD, "Constructor is not found");
+                throw new MoodAnlyseException(MoodAnlyseException.MoodAnlyseExceptionType.NO_SUCH_METHOD, "Constructor not found");
             }
         }
     }

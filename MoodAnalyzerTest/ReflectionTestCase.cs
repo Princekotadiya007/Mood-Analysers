@@ -14,14 +14,26 @@ namespace MoodAnalyzerTest
         {
             try
             {
-                string message = null;
-                object expected = new MoodAnalyzerProblem(message);
-                object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyzerProblem.MoodAnlyseException", "MoodAnalyzerProblem");
+                object expected = new MoodAnalyzerProblem(null);
+                object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.MoodAnalyzerProblem", "MoodAnalyzerProblem");
                 expected.Equals(obj);
-            }  
+            }
             catch (MoodAnlyseException ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+        }
+        [Test]
+        public void ClassName_Should_ThrowMoodAnalysisException()
+        {
+            try
+            {
+                object expected = new MoodAnalyzerProblem(null);
+                object obj = MoodAnalyserFactory.CreateMoodAnalyser(" MoodAnalyser.MoodAnalyzerProblem", "MoodAnalyzerProblem");
+            }
+            catch (MoodAnlyseException ex)
+            {
+                Assert.AreEqual("Class Not found", ex.Message);
             }
         }
     }
