@@ -36,5 +36,6 @@ namespace MoodAnalyser
                 throw new MoodAnlyseException(MoodAnlyseException.MoodAnlyseExceptionType.NO_SUCH_METHOD, "Constructor not found");
             }
         }
+        
     }
 }
